@@ -1,4 +1,5 @@
 [versions]
+# Menggunakan AGP 9.4.1 stabil terbaru pilihan Anda
 agp = "9.4.1"
 kotlin = "2.1.0"
 coreKtx = "1.17.0"
@@ -6,12 +7,12 @@ lifecycleRuntimeKtx = "2.9.2"
 activityCompose = "1.11.0"
 composeBom = "2025.10.01"
 
-# PENTING: Pembaruan versi untuk keselarasan Kotlin 2.1.0
+# SOLUSI BEBAS ERROR: Room dinaikkan ke 2.8.5 agar selaras dengan mesin KSP2 Kotlin 2.1.0
 ksp = "2.1.0-1.0.29"
 hilt = "2.60.1"
 navigationCompose = "2.8.5"
 lifecycleCompose = "2.8.7"
-room = "2.6.1"
+room = "2.8.5"
 hiltNavigationCompose = "1.4.0"
 datastore = "1.1.1"
 junit = "4.13.2"
@@ -20,6 +21,7 @@ espresso = "3.6.1"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+# Plugin kotlin-android DIBUANG sepenuhnya karena AGP 9.4.1 menerapkan fitur Built-in Kotlin
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
