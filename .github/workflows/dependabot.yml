@@ -1,0 +1,15 @@
+version: 2
+updates:
+  # 1. Otomatisasi pembaruan AGP & Library di Version Catalog
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly" # Pilihan: daily, weekly, monthly
+    open-pull-requests-limit: 5
+    target-branch: "main"
+
+  # 2. Otomatisasi pembaruan GitHub Actions internal (Opsional)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
