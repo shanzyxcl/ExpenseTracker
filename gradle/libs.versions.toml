@@ -7,7 +7,7 @@ composeBom = "2025.10.01"
 
 # PENTING: Pembaruan versi untuk keselarasan Kotlin 2.1.0
 ksp = "2.1.0-1.0.29"
-hilt = "2.55"
+hilt = "2.60.1"
 navigationCompose = "2.8.5"
 lifecycleCompose = "2.8.7"
 room = "2.6.1"
