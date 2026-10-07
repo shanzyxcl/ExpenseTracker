@@ -27,6 +27,7 @@ fun HomeScreen(
     onAddExpense: () -> Unit,
     onEditExpense: (Long) -> Unit,
     onViewMonthlySummary: (Int, Int) -> Unit,
+    onAbout: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
@@ -56,6 +57,13 @@ fun HomeScreen(
                         Icon(
                             Icons.Default.BarChart,
                             contentDescription = "Ringkasan Bulanan",
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                    IconButton(onClick = onAbout) {
+                        Icon(
+                            Icons.Default.Info,
+                            contentDescription = "Tentang Aplikasi",
                             tint = MaterialTheme.colorScheme.primary
                         )
                     }

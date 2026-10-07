@@ -24,6 +24,9 @@ fun AppNavigation() {
                 },
                 onViewMonthlySummary = { year, month ->
                     navController.navigate(Screen.MonthlySummary.createRoute(year, month))
+                },
+                onAbout = {
+                    navController.navigate(Screen.About.route)
                 }
             )
         }
@@ -39,6 +42,12 @@ fun AppNavigation() {
             )
         ) {
             AddExpenseScreen(
+                onBack = { navController.popBackStack() }
+            )
+        }
+        
+        composable(Screen.About.route) {
+            AboutScreen(
                 onBack = { navController.popBackStack() }
             )
         }
