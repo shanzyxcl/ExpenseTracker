@@ -84,7 +84,7 @@ fun AboutScreen(
                 color = MaterialTheme.colorScheme.primaryContainer
             ) {
                 Text(
-                    text = "Versi 1.0.0",
+                    text = "Versi 1.0",
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.primary,
@@ -181,7 +181,7 @@ fun AboutScreen(
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = "xyz.nxprojects",
+                            text = "t.me/nxprojects",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.primary
                         )
@@ -202,7 +202,7 @@ fun AboutScreen(
 
             InfoRow(label = "Version", value = "1.0")
             InfoRow(label = "Package", value = "xyz.nxprojects.expensetracker")
-            InfoRow(label = "Min Android", value = "Android 8.0 (API 24)")
+            InfoRow(label = "Min Android", value = "Android 7.0 (API 24)")
             InfoRow(label = "Target Android", value = "Android 17 (API 37)")
             InfoRow(label = "Lisensi", value = "MIT License")
 
