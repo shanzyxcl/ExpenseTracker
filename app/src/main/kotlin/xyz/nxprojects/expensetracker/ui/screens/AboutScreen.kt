@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,7 +38,7 @@ fun AboutScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Kembali")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -199,7 +200,7 @@ fun AboutScreen(
             SectionHeader(title = "Lainnya")
             Spacer(modifier = Modifier.height(12.dp))
 
-            InfoRow(label = "Versi", value = "1.0")
+            InfoRow(label = "Version", value = "1.0")
             InfoRow(label = "Package", value = "xyz.nxprojects.expensetracker")
             InfoRow(label = "Min Android", value = "Android 8.0 (API 24)")
             InfoRow(label = "Target Android", value = "Android 17 (API 37)")
