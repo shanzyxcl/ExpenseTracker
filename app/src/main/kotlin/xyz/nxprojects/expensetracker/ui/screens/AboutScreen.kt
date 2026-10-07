@@ -1,4 +1,4 @@
-package com.example.expensetracker.ui.screens
+package xyz.nxprojects.expensetracker.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.expensetracker.ui.theme.Primary
+import xyz.nxprojects.expensetracker.ui.theme.Primary
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
