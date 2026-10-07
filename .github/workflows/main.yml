@@ -47,8 +47,12 @@ jobs:
       - name: Get Version Name
         id: version
         run: |
-          VERSION=$(grep 'versionName' app/build.gradle | head -1 | sed 's/.*versionName "\(.*\)"/\1/')
-          echo "name=$VERSION" >> $GITHUB_OUTPUT
+           VERSION=$(grep 'versionName' app/build.gradle | head -1 | sed "s/.*versionName ['\"]\\([^'\"]*\\)['\"].*/\\1/")
+           if [ -z "$VERSION" ]; then
+             echo "ERROR: Could not extract versionName from build.gradle" >&2
+             exit 1
+           fi
+           echo "name=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
