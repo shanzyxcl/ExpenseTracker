@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">ExpenseTracker</string>
+
+    <!-- HomeScreen -->
+    <string name="home_title">Catatan Pengeluaran</string>
+    <string name="home_monthly_summary_icon_desc">Ringkasan Bulanan</string>
+    <string name="home_about_icon_desc">Tentang Aplikasi</string>
+    <string name="home_select_day">Pilih Hari</string>
+    <string name="home_today">Hari Ini</string>
+    <string name="home_view_monthly_summary">Lihat Ringkasan Bulan →</string>
+    <string name="home_empty_placeholder_emoji">💸</string>
+    <string name="home_empty_no_expenses">Belum ada pengeluaran hari ini</string>
+    <string name="home_empty_add_button">Catat Pengeluaran</string>
+    <string name="home_fab_desc">Tambah Pengeluaran</string>
+    <string name="home_monthly_total">Total %s %d</string>
+
+    <!-- Day names (short) -->
+    <string name="day_sun_short">Min</string>
+    <string name="day_mon_short">Sen</string>
+    <string name="day_tue_short">Sel</string>
+    <string name="day_wed_short">Rab</string>
+    <string name="day_thu_short">Kam</string>
+    <string name="day_fri_short">Jum</string>
+    <string name="day_sat_short">Sab</string>
+
+    <!-- Month names -->
+    <string name="month_1">Januari</string>
+    <string name="month_2">Februari</string>
+    <string name="month_3">Maret</string>
+    <string name="month_4">April</string>
+    <string name="month_5">Mei</string>
+    <string name="month_6">Juni</string>
+    <string name="month_7">Juli</string>
+    <string name="month_8">Agustus</string>
+    <string name="month_9">September</string>
+    <string name="month_10">Oktober</string>
+    <string name="month_11">November</string>
+    <string name="month_12">Desember</string>
+
+    <!-- AddExpenseScreen -->
+    <string name="add_expense_title">Tambah Pengeluaran</string>
+    <string name="edit_expense_title">Edit Pengeluaran</string>
+    <string name="add_expense_back_desc">Kembali</string>
+    <string name="add_expense_name_label">Nama Pengeluaran</string>
+    <string name="add_expense_name_placeholder">Contoh: Makan siang, Bensin, dll</string>
+    <string name="add_expense_amount_label">Jumlah (Rp)</string>
+    <string name="add_expense_category_label">Kategori</string>
+    <string name="add_expense_date_label">Tanggal</string>
+    <string name="add_expense_note_label">Catatan (Opsional)</string>
+    <string name="add_expense_note_placeholder">Tambahkan catatan…</string>
+    <string name="add_expense_save_button">Simpan Pengeluaran</string>
+    <string name="add_expense_save_changes_button">Simpan Perubahan</string>
+    <string name="add_expense_day_label">Tgl</string>
+    <string name="add_expense_month_label">Bulan</string>
+    <string name="add_expense_year_label">Tahun</string>
+
+    <!-- MonthlySummaryScreen -->
+    <string name="monthly_summary_title">Ringkasan Bulanan</string>
+    <string name="monthly_summary_back_desc">Kembali</string>
+    <string name="monthly_summary_total_label">Total Pengeluaran</string>
+    <string name="monthly_summary_transactions">%d transaksi</string>
+    <string name="monthly_summary_by_category">Pengeluaran per Kategori</string>
+    <string name="monthly_summary_by_day">Rincian per Hari</string>
+    <string name="monthly_summary_empty">Belum ada pengeluaran bulan ini</string>
+
+    <!-- AboutScreen -->
+    <string name="about_title">Tentang</string>
+    <string name="about_back_desc">Kembali</string>
+    <string name="about_version">Versi 1.0</string>
+    <string name="about_description">Aplikasi pencatatan pengeluaran harian yang sederhana, cepat, dan mudah digunakan.</string>
+    <string name="about_features_header">Fitur Utama</string>
+    <string name="about_feature_daily_title">Harian</string>
+    <string name="about_feature_daily_desc">Catat setiap pengeluaran per hari dengan mudah dan cepat</string>
+    <string name="about_feature_categories_title">8 Kategori</string>
+    <string name="about_feature_categories_desc">Makanan, Transportasi, Belanja, Kesehatan, Hiburan, Pendidikan, Tagihan, Lainnya</string>
+    <string name="about_feature_summary_title">Ringkasan Bulanan</string>
+    <string name="about_feature_summary_desc">Lihat total pengeluaran dan rincian per kategori setiap bulan</string>
+    <string name="about_feature_edit_title">Edit &amp; Hapus</string>
+    <string name="about_feature_edit_desc">Ubah atau hapus catatan pengeluaran kapan saja</string>
+    <string name="about_feature_offline_title">Offline &amp; Aman</string>
+    <string name="about_feature_offline_desc">Semua data tersimpan lokal di perangkat, tanpa perlu internet</string>
+    <string name="about_made_with_header">Dibuat dengan</string>
+    <string name="about_developer_header">Pengembang</string>
+    <string name="about_developer_role">Android Developer</string>
+    <string name="about_others_header">Lainnya</string>
+    <string name="about_info_version">Versi</string>
+    <string name="about_info_package">Package</string>
+    <string name="about_info_min_android">Min Android</string>
+    <string name="about_info_target_android">Target Android</string>
+    <string name="about_info_license">Lisensi</string>
+    <string name="about_copyright">© 2026 NX PROJECTS\nHak cipta dilindungi</string>
+
+    <!-- DeleteConfirmDialog (shared) -->
+    <string name="delete_confirm_title">Hapus Pengeluaran</string>
+    <string name="delete_confirm_message">Yakin ingin menghapus \"%s\"?</string>
+    <string name="delete_confirm_yes">Hapus</string>
+    <string name="delete_confirm_no">Batal</string>
+
+    <!-- Category labels -->
+    <string name="category_food">Makanan</string>
+    <string name="category_transport">Transportasi</string>
+    <string name="category_shopping">Belanja</string>
+    <string name="category_health">Kesehatan</string>
+    <string name="category_entertainment">Hiburan</string>
+    <string name="category_education">Pendidikan</string>
+    <string name="category_bills">Tagihan</string>
+    <string name="category_others">Lainnya</string>
+</resources>
