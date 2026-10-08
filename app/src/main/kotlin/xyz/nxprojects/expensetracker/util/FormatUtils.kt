@@ -1,9 +1,12 @@
 package xyz.nxprojects.expensetracker.util
 
+import android.content.Context
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
+// Currency always uses Indonesian Rupiah format regardless of locale
 val indonesianLocale = Locale("id", "ID")
 
 fun Double.toRupiah(): String {
@@ -12,19 +15,24 @@ fun Double.toRupiah(): String {
     return formatter.format(this)
 }
 
+/**
+ * Returns the month name in the device's current language.
+ * Uses the device locale automatically (e.g. "Januari" in ID, "January" in EN).
+ */
 fun getMonthName(month: Int): String {
-    val months = listOf(
-        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
-    )
-    return months.getOrElse(month - 1) { "Unknown" }
+    val cal = Calendar.getInstance()
+    cal.set(Calendar.MONTH, month - 1)
+    return SimpleDateFormat("MMMM", Locale.getDefault()).format(cal.time)
 }
 
+/**
+ * Returns the full day name in the device's current language.
+ * Uses the device locale automatically (e.g. "Senin" in ID, "Monday" in EN).
+ */
 fun getDayName(year: Int, month: Int, day: Int): String {
     val cal = Calendar.getInstance()
     cal.set(year, month - 1, day)
-    val days = listOf("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu")
-    return days[cal.get(Calendar.DAY_OF_WEEK) - 1]
+    return SimpleDateFormat("EEEE", Locale.getDefault()).format(cal.time)
 }
 
 fun getLastDayOfMonth(year: Int, month: Int): Int {
