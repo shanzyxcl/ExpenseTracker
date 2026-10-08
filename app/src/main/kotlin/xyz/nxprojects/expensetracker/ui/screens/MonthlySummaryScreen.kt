@@ -11,10 +11,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.*
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import xyz.nxprojects.expensetracker.R
 import xyz.nxprojects.expensetracker.data.local.dao.CategoryTotal
 import xyz.nxprojects.expensetracker.data.repository.Expense
 import xyz.nxprojects.expensetracker.data.repository.ExpenseCategory
@@ -38,12 +40,12 @@ fun MonthlySummaryScreen(
                 title = {
                     Column {
                         Text(
-                            "Ringkasan Bulanan",
+                            stringResource(R.string.monthly_summary_title),
                             style = MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            "${getMonthName(state.month)} ${state.year}",
+                            "${stringResource(getMonthStringRes(state.month))} ${state.year}",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                         )
@@ -51,7 +53,10 @@ fun MonthlySummaryScreen(
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.monthly_summary_back_desc)
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -81,7 +86,7 @@ fun MonthlySummaryScreen(
             if (state.categoryBreakdown.isNotEmpty()) {
                 item {
                     Text(
-                        "Pengeluaran per Kategori",
+                        stringResource(R.string.monthly_summary_by_category),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold
                     )
@@ -98,7 +103,7 @@ fun MonthlySummaryScreen(
             if (state.dailyGroups.isNotEmpty()) {
                 item {
                     Text(
-                        "Rincian per Hari",
+                        stringResource(R.string.monthly_summary_by_day),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold
                     )
@@ -168,12 +173,12 @@ private fun GrandTotalCard(
             Text("💰", fontSize = 36.sp)
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                "Total Pengeluaran",
+                stringResource(R.string.monthly_summary_total_label),
                 style = MaterialTheme.typography.bodyLarge,
                 color = Color.White.copy(alpha = 0.8f)
             )
             Text(
-                "${getMonthName(month)} $year",
+                "${stringResource(getMonthStringRes(month))} $year",
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.White.copy(alpha = 0.7f)
             )
@@ -191,7 +196,7 @@ private fun GrandTotalCard(
                 color = Color.White.copy(alpha = 0.2f)
             ) {
                 Text(
-                    "$expenseCount transaksi",
+                    stringResource(R.string.monthly_summary_transactions, expenseCount),
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
                     style = MaterialTheme.typography.bodySmall,
                     color = Color.White
@@ -309,7 +314,7 @@ private fun DayGroupHeader(
                     fontWeight = FontWeight.SemiBold
                 )
                 Text(
-                    "$day ${getMonthName(month)} $year",
+                    "$day ${stringResource(getMonthStringRes(month))} $year",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                 )
@@ -338,7 +343,7 @@ private fun EmptyMonthPlaceholder() {
         Text("📭", fontSize = 52.sp)
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            "Belum ada pengeluaran bulan ini",
+            stringResource(R.string.monthly_summary_empty),
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
         )

@@ -16,10 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import xyz.nxprojects.expensetracker.R
 import xyz.nxprojects.expensetracker.ui.theme.Primary
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,13 +34,16 @@ fun AboutScreen(
             TopAppBar(
                 title = {
                     Text(
-                        "About",
+                        stringResource(R.string.about_title),
                         fontWeight = FontWeight.Bold
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.about_back_desc)
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -73,7 +78,7 @@ fun AboutScreen(
 
             // App name & version
             Text(
-                text = "ExpenseTracker",
+                text = stringResource(R.string.app_name),
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
@@ -84,7 +89,7 @@ fun AboutScreen(
                 color = MaterialTheme.colorScheme.primaryContainer
             ) {
                 Text(
-                    text = "Versi 1.0",
+                    text = stringResource(R.string.about_version),
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.primary,
@@ -95,7 +100,7 @@ fun AboutScreen(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "A simple, fast, and easy-to-use daily expense recording applicati.",
+                text = stringResource(R.string.about_description),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
                 textAlign = TextAlign.Center
@@ -104,38 +109,38 @@ fun AboutScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             // Features section
-            SectionHeader(title = "Key Features")
+            SectionHeader(title = stringResource(R.string.about_features_header))
             Spacer(modifier = Modifier.height(12.dp))
 
             FeatureItem(
                 emoji = "📅",
-                title = "Daily",
-                description = "Record every expense per day easily and quickly"
+                title = stringResource(R.string.about_feature_daily_title),
+                description = stringResource(R.string.about_feature_daily_desc)
             )
             FeatureItem(
                 emoji = "🗂️",
-                title = "8 Categories",
-                description = "Food, Transportation, Shopping, Health, Entertainment, Education, Bills, Others"
+                title = stringResource(R.string.about_feature_categories_title),
+                description = stringResource(R.string.about_feature_categories_desc)
             )
             FeatureItem(
                 emoji = "📊",
-                title = "Monthly Summary",
-                description = "View total expenses and breakdown by category at the end of each month"
+                title = stringResource(R.string.about_feature_summary_title),
+                description = stringResource(R.string.about_feature_summary_desc)
             )
             FeatureItem(
                 emoji = "✏️",
-                title = "Edit & Delete",
-                description = "Change or delete expense records at any time"
+                title = stringResource(R.string.about_feature_edit_title),
+                description = stringResource(R.string.about_feature_edit_desc)
             )
             FeatureItem(
                 emoji = "💾",
-                title = "Offline & safe",
-                description = "All data is stored locally on the device, no internet required"
+                title = stringResource(R.string.about_feature_offline_title),
+                description = stringResource(R.string.about_feature_offline_desc)
             )
 
             Spacer(modifier = Modifier.height(28.dp))
 
-            SectionHeader(title = "Made with")
+            SectionHeader(title = stringResource(R.string.about_made_with_header))
             Spacer(modifier = Modifier.height(12.dp))
 
             TechItem(icon = Icons.Default.Code, label = "Kotlin")
@@ -147,7 +152,7 @@ fun AboutScreen(
             Spacer(modifier = Modifier.height(28.dp))
 
             // Developer section
-            SectionHeader(title = "Developer")
+            SectionHeader(title = stringResource(R.string.about_developer_header))
             Spacer(modifier = Modifier.height(12.dp))
 
             Card(
@@ -186,7 +191,7 @@ fun AboutScreen(
                             color = MaterialTheme.colorScheme.primary
                         )
                         Text(
-                            text = "Android Developer",
+                            text = stringResource(R.string.about_developer_role),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                         )
@@ -196,21 +201,21 @@ fun AboutScreen(
 
             Spacer(modifier = Modifier.height(28.dp))
 
-            // Legal section
-            SectionHeader(title = "Lainnya")
+            // Info section
+            SectionHeader(title = stringResource(R.string.about_others_header))
             Spacer(modifier = Modifier.height(12.dp))
 
-            InfoRow(label = "Version", value = "1.0")
-            InfoRow(label = "Package", value = "xyz.nxprojects.expensetracker")
-            InfoRow(label = "Min Android", value = "Android 7.0 (API 24)")
-            InfoRow(label = "Target Android", value = "Android 17 (API 37)")
-            InfoRow(label = "Lisensi", value = "MIT License")
+            InfoRow(label = stringResource(R.string.about_info_version), value = "1.0")
+            InfoRow(label = stringResource(R.string.about_info_package), value = "xyz.nxprojects.expensetracker")
+            InfoRow(label = stringResource(R.string.about_info_min_android), value = "Android 7.0 (API 24)")
+            InfoRow(label = stringResource(R.string.about_info_target_android), value = "Android 17 (API 37)")
+            InfoRow(label = stringResource(R.string.about_info_license), value = "MIT License")
 
             Spacer(modifier = Modifier.height(32.dp))
 
             // Footer
             Text(
-                text = "© 2026 NX PPROJECRS\nAll Right All rights reserved",
+                text = stringResource(R.string.about_copyright),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f),
                 textAlign = TextAlign.Center

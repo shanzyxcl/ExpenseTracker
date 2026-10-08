@@ -12,10 +12,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.*
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.*
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import xyz.nxprojects.expensetracker.R
 import xyz.nxprojects.expensetracker.data.repository.Expense
 import xyz.nxprojects.expensetracker.ui.components.*
 import xyz.nxprojects.expensetracker.ui.theme.*
@@ -39,12 +41,12 @@ fun HomeScreen(
                 title = {
                     Column {
                         Text(
-                            text = "Catatan Pengeluaran",
+                            text = stringResource(R.string.home_title),
                             style = MaterialTheme.typography.titleLarge,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = "${getMonthName(state.currentMonth)} ${state.currentYear}",
+                            text = "${stringResource(getMonthStringRes(state.currentMonth))} ${state.currentYear}",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
                         )
@@ -56,14 +58,14 @@ fun HomeScreen(
                     }) {
                         Icon(
                             Icons.Default.BarChart,
-                            contentDescription = "Ringkasan Bulanan",
+                            contentDescription = stringResource(R.string.home_monthly_summary_icon_desc),
                             tint = MaterialTheme.colorScheme.primary
                         )
                     }
                     IconButton(onClick = onAbout) {
                         Icon(
                             Icons.Default.Info,
-                            contentDescription = "Tentang Aplikasi",
+                            contentDescription = stringResource(R.string.home_about_icon_desc),
                             tint = MaterialTheme.colorScheme.primary
                         )
                     }
@@ -79,7 +81,7 @@ fun HomeScreen(
                 containerColor = MaterialTheme.colorScheme.primary,
                 contentColor = Color.White
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Tambah Pengeluaran")
+                Icon(Icons.Default.Add, contentDescription = stringResource(R.string.home_fab_desc))
             }
         }
     ) { padding ->
@@ -104,7 +106,7 @@ fun HomeScreen(
             // Day selector header
             item {
                 Text(
-                    "Pilih Hari",
+                    stringResource(R.string.home_select_day),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -120,7 +122,7 @@ fun HomeScreen(
                 )
             }
 
-            // Today header
+            // Selected day header
             item {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -128,7 +130,7 @@ fun HomeScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "${getDayName(state.currentYear, state.currentMonth, state.currentDay)}, ${state.currentDay} ${getMonthName(state.currentMonth)}",
+                        text = "${getDayName(state.currentYear, state.currentMonth, state.currentDay)}, ${state.currentDay} ${stringResource(getMonthStringRes(state.currentMonth))}",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold
                     )
@@ -203,7 +205,7 @@ private fun MonthlyOverviewCard(
             ) {
                 Column {
                     Text(
-                        "Total ${getMonthName(month)} $year",
+                        stringResource(R.string.home_monthly_total, stringResource(getMonthStringRes(month)), year),
                         style = MaterialTheme.typography.bodyMedium,
                         color = Color.White.copy(alpha = 0.8f)
                     )
@@ -216,7 +218,7 @@ private fun MonthlyOverviewCard(
                 }
                 Column(horizontalAlignment = Alignment.End) {
                     Text(
-                        "Hari Ini",
+                        stringResource(R.string.home_today),
                         style = MaterialTheme.typography.bodySmall,
                         color = Color.White.copy(alpha = 0.8f)
                     )
@@ -234,7 +236,7 @@ private fun MonthlyOverviewCard(
                 horizontalArrangement = Arrangement.End
             ) {
                 Text(
-                    "Lihat Ringkasan Bulan →",
+                    stringResource(R.string.home_view_monthly_summary),
                     style = MaterialTheme.typography.bodySmall,
                     color = Color.White.copy(alpha = 0.9f)
                 )
@@ -258,6 +260,17 @@ private fun DayPickerRow(
     val currentYear = getCurrentYear()
     val currentMonth = getCurrentMonth()
 
+    // Localised short day names resolved once per composition
+    val dayNames = listOf(
+        stringResource(R.string.day_sun_short),
+        stringResource(R.string.day_mon_short),
+        stringResource(R.string.day_tue_short),
+        stringResource(R.string.day_wed_short),
+        stringResource(R.string.day_thu_short),
+        stringResource(R.string.day_fri_short),
+        stringResource(R.string.day_sat_short)
+    )
+
     LazyRow(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = 2.dp)
@@ -267,7 +280,6 @@ private fun DayPickerRow(
             val isToday = day == today && year == currentYear && month == currentMonth
             val cal = java.util.Calendar.getInstance()
             cal.set(year, month - 1, day)
-            val dayNames = listOf("Min","Sen","Sel","Rab","Kam","Jum","Sab")
             val dayName = dayNames[cal.get(java.util.Calendar.DAY_OF_WEEK) - 1]
 
             Column(
@@ -323,10 +335,10 @@ private fun EmptyDayPlaceholder(onAddExpense: () -> Unit) {
             .padding(vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("💸", fontSize = 52.sp)
+        Text(stringResource(R.string.home_empty_placeholder_emoji), fontSize = 52.sp)
         Spacer(modifier = Modifier.height(12.dp))
         Text(
-            "Belum ada pengeluaran hari ini",
+            stringResource(R.string.home_empty_no_expenses),
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
         )
@@ -334,7 +346,7 @@ private fun EmptyDayPlaceholder(onAddExpense: () -> Unit) {
         OutlinedButton(onClick = onAddExpense) {
             Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(16.dp))
             Spacer(modifier = Modifier.width(4.dp))
-            Text("Catat Pengeluaran")
+            Text(stringResource(R.string.home_empty_add_button))
         }
     }
 }

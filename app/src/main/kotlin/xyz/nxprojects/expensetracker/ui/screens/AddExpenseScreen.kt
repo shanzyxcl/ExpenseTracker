@@ -11,11 +11,13 @@ import androidx.compose.material.icons.automirrored.filled.Notes
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.*
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import xyz.nxprojects.expensetracker.R
 import xyz.nxprojects.expensetracker.data.repository.ExpenseCategory
 import xyz.nxprojects.expensetracker.ui.components.CategoryChip
 import xyz.nxprojects.expensetracker.util.*
@@ -38,13 +40,17 @@ fun AddExpenseScreen(
             TopAppBar(
                 title = {
                     Text(
-                        if (state.isEditing) "Edit Pengeluaran" else "Tambah Pengeluaran",
+                        if (state.isEditing) stringResource(R.string.edit_expense_title)
+                        else stringResource(R.string.add_expense_title),
                         fontWeight = FontWeight.Bold
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Kembali")
+                        Icon(
+                            Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.add_expense_back_desc)
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -80,8 +86,11 @@ fun AddExpenseScreen(
                             modifier = Modifier.size(18.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text(err, color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodyMedium)
+                        Text(
+                            err,
+                            color = MaterialTheme.colorScheme.error,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
                     }
                 }
             }
@@ -90,8 +99,8 @@ fun AddExpenseScreen(
             OutlinedTextField(
                 value = state.title,
                 onValueChange = viewModel::onTitleChange,
-                label = { Text("Nama Pengeluaran") },
-                placeholder = { Text("Contoh: Makan siang, Bensin, dll") },
+                label = { Text(stringResource(R.string.add_expense_name_label)) },
+                placeholder = { Text(stringResource(R.string.add_expense_name_placeholder)) },
                 leadingIcon = { Icon(Icons.Default.Edit, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
@@ -102,10 +111,16 @@ fun AddExpenseScreen(
             OutlinedTextField(
                 value = state.amount,
                 onValueChange = viewModel::onAmountChange,
-                label = { Text("Jumlah (Rp)") },
+                label = { Text(stringResource(R.string.add_expense_amount_label)) },
                 placeholder = { Text("0") },
-                leadingIcon = { Text("Rp", modifier = Modifier.padding(start = 12.dp),
-                    style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold) },
+                leadingIcon = {
+                    Text(
+                        "Rp",
+                        modifier = Modifier.padding(start = 12.dp),
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
@@ -114,7 +129,7 @@ fun AddExpenseScreen(
 
             // Category selector
             Text(
-                "Kategori",
+                stringResource(R.string.add_expense_category_label),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold
             )
@@ -133,7 +148,7 @@ fun AddExpenseScreen(
 
             // Date selector
             Text(
-                "Tanggal",
+                stringResource(R.string.add_expense_date_label),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold
             )
@@ -148,8 +163,8 @@ fun AddExpenseScreen(
             OutlinedTextField(
                 value = state.note,
                 onValueChange = viewModel::onNoteChange,
-                label = { Text("Catatan (Opsional)") },
-                placeholder = { Text("Tambahkan catatan...") },
+                label = { Text(stringResource(R.string.add_expense_note_label)) },
+                placeholder = { Text(stringResource(R.string.add_expense_note_placeholder)) },
                 leadingIcon = { Icon(Icons.AutoMirrored.Filled.Notes, contentDescription = null) },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
@@ -171,7 +186,8 @@ fun AddExpenseScreen(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    if (state.isEditing) "Simpan Perubahan" else "Simpan Pengeluaran",
+                    if (state.isEditing) stringResource(R.string.add_expense_save_changes_button)
+                    else stringResource(R.string.add_expense_save_button),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -212,7 +228,7 @@ private fun DatePickerRow(
             OutlinedTextField(
                 value = day.toString(),
                 onValueChange = {},
-                label = { Text("Tgl") },
+                label = { Text(stringResource(R.string.add_expense_day_label)) },
                 readOnly = true,
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
@@ -237,9 +253,9 @@ private fun DatePickerRow(
         // Month
         Box(modifier = Modifier.weight(2f)) {
             OutlinedTextField(
-                value = getMonthName(month).take(3),
+                value = stringResource(getMonthStringRes(month)).take(3),
                 onValueChange = {},
-                label = { Text("Bulan") },
+                label = { Text(stringResource(R.string.add_expense_month_label)) },
                 readOnly = true,
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
@@ -251,7 +267,7 @@ private fun DatePickerRow(
             DropdownMenu(expanded = monthExpanded, onDismissRequest = { monthExpanded = false }) {
                 months.forEach { m ->
                     DropdownMenuItem(
-                        text = { Text(getMonthName(m)) },
+                        text = { Text(stringResource(getMonthStringRes(m))) },
                         onClick = {
                             val safeDay = day.coerceAtMost(getLastDayOfMonth(year, m))
                             onDateChange(year, m, safeDay)
@@ -267,7 +283,7 @@ private fun DatePickerRow(
             OutlinedTextField(
                 value = year.toString(),
                 onValueChange = {},
-                label = { Text("Tahun") },
+                label = { Text(stringResource(R.string.add_expense_year_label)) },
                 readOnly = true,
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
