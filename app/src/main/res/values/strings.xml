@@ -1,3 +1,106 @@
 <resources>
     <string name="app_name">ExpenseTracker</string>
+    <string name="home_title">Expense Notes</string>
+    <string name="home_monthly_summary_icon_desc">Monthly Summary</string>
+    <string name="home_about_icon_desc">About App</string>
+    <string name="home_select_day">Select Day</string>
+    <string name="home_today">Today</string>
+    <string name="home_view_monthly_summary">View Monthly Summary →</string>
+    <string name="home_empty_placeholder_emoji">💸</string>
+    <string name="home_empty_no_expenses">No expenses today</string>
+    <string name="home_empty_add_button">Add Expense</string>
+    <string name="home_fab_desc">Add Expense</string>
+    <string name="home_monthly_total">Total %s %d</string>
+
+    <!-- Day names (short) -->
+    <string name="day_sun_short">Sun</string>
+    <string name="day_mon_short">Mon</string>
+    <string name="day_tue_short">Tue</string>
+    <string name="day_wed_short">Wed</string>
+    <string name="day_thu_short">Thu</string>
+    <string name="day_fri_short">Fri</string>
+    <string name="day_sat_short">Sat</string>
+
+    <!-- Month names -->
+    <string name="month_1">January</string>
+    <string name="month_2">February</string>
+    <string name="month_3">March</string>
+    <string name="month_4">April</string>
+    <string name="month_5">May</string>
+    <string name="month_6">June</string>
+    <string name="month_7">July</string>
+    <string name="month_8">August</string>
+    <string name="month_9">September</string>
+    <string name="month_10">October</string>
+    <string name="month_11">November</string>
+    <string name="month_12">December</string>
+
+    <!-- AddExpenseScreen -->
+    <string name="add_expense_title">Add Expense</string>
+    <string name="edit_expense_title">Edit Expense</string>
+    <string name="add_expense_back_desc">Back</string>
+    <string name="add_expense_name_label">Expense Name</string>
+    <string name="add_expense_name_placeholder">E.g.: Lunch, Gas, etc.</string>
+    <string name="add_expense_amount_label">Amount (Rp)</string>
+    <string name="add_expense_category_label">Category</string>
+    <string name="add_expense_date_label">Date</string>
+    <string name="add_expense_note_label">Note (Optional)</string>
+    <string name="add_expense_note_placeholder">Add a note…</string>
+    <string name="add_expense_save_button">Save Expense</string>
+    <string name="add_expense_save_changes_button">Save Changes</string>
+    <string name="add_expense_day_label">Day</string>
+    <string name="add_expense_month_label">Month</string>
+    <string name="add_expense_year_label">Year</string>
+
+    <!-- MonthlySummaryScreen -->
+    <string name="monthly_summary_title">Monthly Summary</string>
+    <string name="monthly_summary_back_desc">Back</string>
+    <string name="monthly_summary_total_label">Total Expenses</string>
+    <string name="monthly_summary_transactions">%d transactions</string>
+    <string name="monthly_summary_by_category">Expenses by Category</string>
+    <string name="monthly_summary_by_day">Daily Breakdown</string>
+    <string name="monthly_summary_empty">No expenses this month</string>
+
+    <!-- AboutScreen -->
+    <string name="about_title">About</string>
+    <string name="about_back_desc">Back</string>
+    <string name="about_version">Version 1.0</string>
+    <string name="about_description">A simple, fast, and easy-to-use daily expense recording application.</string>
+    <string name="about_features_header">Key Features</string>
+    <string name="about_feature_daily_title">Daily</string>
+    <string name="about_feature_daily_desc">Record every expense per day easily and quickly</string>
+    <string name="about_feature_categories_title">8 Categories</string>
+    <string name="about_feature_categories_desc">Food, Transportation, Shopping, Health, Entertainment, Education, Bills, Others</string>
+    <string name="about_feature_summary_title">Monthly Summary</string>
+    <string name="about_feature_summary_desc">View total expenses and breakdown by category at the end of each month</string>
+    <string name="about_feature_edit_title">Edit &amp; Delete</string>
+    <string name="about_feature_edit_desc">Change or delete expense records at any time</string>
+    <string name="about_feature_offline_title">Offline &amp; Safe</string>
+    <string name="about_feature_offline_desc">All data is stored locally on the device, no internet required</string>
+    <string name="about_made_with_header">Made with</string>
+    <string name="about_developer_header">Developer</string>
+    <string name="about_developer_role">Android Developer</string>
+    <string name="about_others_header">Other</string>
+    <string name="about_info_version">Version</string>
+    <string name="about_info_package">Package</string>
+    <string name="about_info_min_android">Min Android</string>
+    <string name="about_info_target_android">Target Android</string>
+    <string name="about_info_license">License</string>
+    <string name="about_copyright">© 2026 NX PROJECTS\nAll rights reserved</string>
+
+    <!-- DeleteConfirmDialog (shared) -->
+    <string name="delete_confirm_title">Delete Expense</string>
+    <string name="delete_confirm_message">Are you sure you want to delete \"%s\"?</string>
+    <string name="delete_confirm_yes">Delete</string>
+    <string name="delete_confirm_no">Cancel</string>
+
+    <!-- Category labels -->
+    <string name="category_food">Food</string>
+    <string name="category_transport">Transportation</string>
+    <string name="category_shopping">Shopping</string>
+    <string name="category_health">Health</string>
+    <string name="category_entertainment">Entertainment</string>
+    <string name="category_education">Education</string>
+    <string name="category_bills">Bills</string>
+    <string name="category_others">Others</string>
 </resources>
